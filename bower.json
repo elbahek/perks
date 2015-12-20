@@ -1,0 +1,18 @@
+{
+  "name": "perks",
+  "version": "0.0.1",
+  "homepage": "https://elbahek.github.io/perks",
+  "authors": [
+    "Ivan Abdulin <ivan.abdulin@gmail.com>"
+  ],
+  "description": "List of perks for old Fallout PnP",
+  "license": "GPL-2.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

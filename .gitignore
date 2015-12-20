@@ -1,2 +1,6 @@
 # IDE
 .idea
+
+# Package dirs
+node_modules
+bower_components

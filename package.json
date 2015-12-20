@@ -1,0 +1,23 @@
+{
+  "name": "perks",
+  "version": "0.0.1",
+  "description": "List of perks for old Fallout PnP",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elbahek/perks.git"
+  },
+  "author": "Ivan Abdulin <ivan.abdulin@gmail.com>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/elbahek/perks/issues"
+  },
+  "homepage": "https://github.com/elbahek/perks#readme",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
