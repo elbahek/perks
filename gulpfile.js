@@ -35,7 +35,14 @@ function transformPaths(filePath) {
   return filePath;
 }
 
-// compile sass and copy to public dir
+// copy views to dist dir
+gulp.task('copyAppViews', function() {
+  return gulp.src(config.appDir + '/views/**/*.html', {base: config.appDir + '/views'})
+    .pipe(cache('appViews'))
+    .pipe(gulp.dest(config.distDir + '/views'));
+});
+
+// compile less and copy to dist dir
 gulp.task('copyAppStyles', function() {
   return gulp.src(config.assets.styles.app)
     .pipe(gulpif(config.environment === ENV_DEVELOPMENT, sourcemaps.init()))
@@ -134,6 +141,9 @@ gulp.task('browserReloadAfterInject', ['inject'], browserSync.reload);
 // ensure browser reload on app scripts change
 gulp.task('browserReloadOnAppScripts', ['copyAppScripts'], browserSync.reload);
 
+// ensure browser reload on views change
+gulp.task('browserReloadOnAppViews', ['copyAppViews'], browserSync.reload);
+
 gulp.task('watch', function() {
   gulp.watch(config.appDir + '/index.html', ['browserReloadAfterInject']);
   advancedWatch(jshintedFiles, function() {
@@ -146,17 +156,22 @@ gulp.task('watch', function() {
   advancedWatch(config.appDir + '/**/*.js', function() {
     gulp.start('browserReloadOnAppScripts');
   });
+  advancedWatch(config.appDir + '/views/**/*.html', function() {
+    gulp.start('browserReloadOnAppViews');
+  });
 });
 
 gulp.task('serve', [
   'browserSync', // synchronous
   'jshint',
   'jscs',
+  'copyAppViews',
   'inject',
   'watch'
 ]);
 
 gulp.task('build', [
+  'copyAppViews',
   'inject'
 ]);
 
