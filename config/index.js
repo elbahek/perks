@@ -19,6 +19,7 @@ if ([ENV_DEVELOPMENT, ENV_PRODUCTION].indexOf(environment) === -1) {
 var config = {
   environment: environment,
   siteDir: siteDir,
+  bowerDir: siteDir + '/bower_components',
   appDir: siteDir + '/app',
   distDir: siteDir + '/gh-pages'
 };

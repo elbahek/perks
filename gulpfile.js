@@ -10,7 +10,9 @@ var path = require('path'),
   less = require('gulp-less'),
   sourcemaps = require('gulp-sourcemaps'),
   advancedWatch = require('gulp-watch'),
-  browserSync = require('browser-sync');
+  browserSync = require('browser-sync'),
+  uglify = require('gulp-uglify'),
+  cache = require('gulp-cached');
 
 var config = require('./config');
 
@@ -42,9 +44,28 @@ gulp.task('copyAppStyles', function() {
     .pipe(gulpif(config.environment === ENV_DEVELOPMENT, browserSync.stream()));
 });
 
+// copy third-party scripts to dist dir
+gulp.task('copyThirdPartyScripts', function() {
+  return gulp.src(config.assets.scripts.thirdParty)
+    .pipe(gulpif(config.environment === ENV_PRODUCTION, concat('third-party.min.js')))
+    .pipe(gulpif(config.environment === ENV_PRODUCTION, uglify()))
+    .pipe(gulp.dest(config.distDir + '/js'));
+});
+
+// copy app scripts to dist dir
+gulp.task('copyAppScripts', function() {
+  return gulp.src(config.assets.scripts.app)
+    .pipe(cache('appScripts'))
+    .pipe(gulpif(config.environment === ENV_PRODUCTION, concat('app.min.js')))
+    .pipe(gulpif(config.environment === ENV_PRODUCTION, uglify()))
+    .pipe(gulp.dest(config.distDir + '/js'));
+});
+
 // injects compiled styles and scripts into index.html
 // copy index.html to dist dir
 gulp.task('inject', [
+    'copyThirdPartyScripts',
+    'copyAppScripts',
     'copyAppStyles'
   ],
   function() {
@@ -56,12 +77,16 @@ gulp.task('inject', [
         appStylesCompiled.push(config.distDir + '/css/' + newFile);
       });
       files = [].concat(
-        appStylesCompiled
+        appStylesCompiled,
+        config.assets.scripts.thirdParty,
+        config.assets.scripts.app
       );
     }
     else if (config.environment === ENV_PRODUCTION) {
       files = [
-        config.distDir + '/css/app.min.css'
+        config.distDir + '/css/app.min.css',
+        config.distDir + '/js/third-party.min.js',
+        config.distDir + '/js/app.min.js'
       ];
     }
     var sources = gulp.src(files, {read: false});
@@ -84,10 +109,16 @@ gulp.task('browserSync', function() {
 // ensure browser reload after injecting js/css
 gulp.task('browserReloadAfterInject', ['inject'], browserSync.reload);
 
+// ensure browser reload on app scripts change
+gulp.task('browserReloadOnAppScripts', ['copyAppScripts'], browserSync.reload);
+
 gulp.task('watch', function() {
   gulp.watch(config.appDir + '/index.html', ['browserReloadAfterInject']);
   advancedWatch(config.appDir + '/assets/**/*.less', function() {
     gulp.start('copyAppStyles');
+  });
+  advancedWatch(config.appDir + '/**/*.js', function() {
+    gulp.start('browserReloadOnAppScripts');
   });
 });
 
