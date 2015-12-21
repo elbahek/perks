@@ -30,6 +30,7 @@ function transformPaths(filePath) {
   return filePath;
 }
 
+// compile sass and copy to public dir
 gulp.task('copyAppStyles', function() {
   return gulp.src(config.assets.styles.app)
     .pipe(gulpif(config.environment === ENV_DEVELOPMENT, sourcemaps.init()))
@@ -69,8 +70,16 @@ gulp.task('inject', [
   }
 );
 
+
+gulp.task('watch', function() {
+  advancedWatch(config.appDir + '/assets/**/*.less', function() {
+    gulp.start('copyAppStyles');
+  });
+});
+
 gulp.task('serve', [
-  'inject'
+  'inject',
+  'watch'
 ]);
 
 gulp.task('build', [
