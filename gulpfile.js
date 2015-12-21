@@ -12,7 +12,10 @@ var path = require('path'),
   advancedWatch = require('gulp-watch'),
   browserSync = require('browser-sync'),
   uglify = require('gulp-uglify'),
-  cache = require('gulp-cached');
+  cache = require('gulp-cached'),
+  jshint = require('gulp-jshint'),
+  jshintStylish = require('jshint-stylish'),
+  jscs = require('gulp-jscs');
 
 var config = require('./config');
 
@@ -42,6 +45,25 @@ gulp.task('copyAppStyles', function() {
     .pipe(gulpif(config.environment === ENV_DEVELOPMENT, sourcemaps.write()))
     .pipe(gulp.dest(config.distDir + '/css'))
     .pipe(gulpif(config.environment === ENV_DEVELOPMENT, browserSync.stream()));
+});
+
+var jshintedFiles = [
+  'gulpfile.js',
+  config.siteDir + '/config/**/*.js',
+  config.appDir + '/**/*.js'
+];
+jshintedFiles.concat(config.assets.scripts.app);
+// check all js files with jshint
+gulp.task('jshint', function() {
+  return gulp.src(jshintedFiles)
+    .pipe(jshint())
+    .pipe(jshint.reporter(jshintStylish));
+});
+
+// check all js files with jscs
+gulp.task('jscs', function() {
+  return gulp.src(jshintedFiles)
+    .pipe(jscs());
 });
 
 // copy third-party scripts to dist dir
@@ -114,6 +136,10 @@ gulp.task('browserReloadOnAppScripts', ['copyAppScripts'], browserSync.reload);
 
 gulp.task('watch', function() {
   gulp.watch(config.appDir + '/index.html', ['browserReloadAfterInject']);
+  advancedWatch(jshintedFiles, function() {
+    gulp.start('jshint');
+    gulp.start('jscs');
+  });
   advancedWatch(config.appDir + '/assets/**/*.less', function() {
     gulp.start('copyAppStyles');
   });
@@ -124,6 +150,8 @@ gulp.task('watch', function() {
 
 gulp.task('serve', [
   'browserSync', // synchronous
+  'jshint',
+  'jscs',
   'inject',
   'watch'
 ]);
