@@ -9,16 +9,16 @@ var path = require('path'),
   minify = require('gulp-minify-css'),
   less = require('gulp-less'),
   sourcemaps = require('gulp-sourcemaps'),
-  advancedWatch = require('gulp-watch');
+  advancedWatch = require('gulp-watch'),
+  browserSync = require('browser-sync');
 
 var config = require('./config');
 
 function transformPaths(filePath) {
   var extension = path.extname(filePath).replace('.', '').toLowerCase();
   var fileName = path.basename(filePath);
-  var localPathPart = config.environment === ENV_DEVELOPMENT ? '.' : '';
   if (['js', 'css'].indexOf(extension) !== -1) {
-    filePath = localPathPart + '/' + extension + '/' + fileName;
+    filePath = '/' + extension + '/' + fileName;
   }
   if (extension === 'js') {
     filePath = '<script type="text/javascript" src="' + filePath + '"></script>';
@@ -38,10 +38,12 @@ gulp.task('copyAppStyles', function() {
     .pipe(gulpif(config.environment === ENV_PRODUCTION, minify()))
     .pipe(gulpif(config.environment === ENV_PRODUCTION, concat('app.min.css')))
     .pipe(gulpif(config.environment === ENV_DEVELOPMENT, sourcemaps.write()))
-    .pipe(gulp.dest(config.distDir + '/css'));
-    //.pipe(gulpif(config.environment === ENV_DEVELOPMENT, browserSync.stream()));
+    .pipe(gulp.dest(config.distDir + '/css'))
+    .pipe(gulpif(config.environment === ENV_DEVELOPMENT, browserSync.stream()));
 });
 
+// injects compiled styles and scripts into index.html
+// copy index.html to dist dir
 gulp.task('inject', [
     'copyAppStyles'
   ],
@@ -70,14 +72,27 @@ gulp.task('inject', [
   }
 );
 
+// browser sync server
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {baseDir: './gh-pages'},
+    notify: false,
+    open: false
+  });
+});
+
+// ensure browser reload after injecting js/css
+gulp.task('browserReloadAfterInject', ['inject'], browserSync.reload);
 
 gulp.task('watch', function() {
+  gulp.watch(config.appDir + '/index.html', ['browserReloadAfterInject']);
   advancedWatch(config.appDir + '/assets/**/*.less', function() {
     gulp.start('copyAppStyles');
   });
 });
 
 gulp.task('serve', [
+  'browserSync', // synchronous
   'inject',
   'watch'
 ]);

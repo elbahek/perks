@@ -18,6 +18,7 @@
   "homepage": "https://github.com/elbahek/perks#readme",
   "private": true,
   "devDependencies": {
+    "browser-sync": "^2.10.1",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-if": "^2.0.0",
