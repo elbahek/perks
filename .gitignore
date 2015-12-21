@@ -4,3 +4,6 @@
 # Package dirs
 node_modules
 bower_components
+
+# ENV
+.environment.json
