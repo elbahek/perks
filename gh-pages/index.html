@@ -5,8 +5,18 @@
   <title>Perks</title>
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:normal,bold|Roboto:normal,bold,900&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- endinject -->
 </head>
-<body>
-  <h1>Hello, Perks</h1>
+<body ng-app="PerksModule">
+  <div class="page-wrapper" ng-view></div>
+
+  <!-- inject:js -->
+  <script type="text/javascript" src="/js/angular.js"></script>
+  <script type="text/javascript" src="/js/angular-route.js"></script>
+  <script type="text/javascript" src="/js/perks.module.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+  <!-- endinject -->
 </body>
 </html>
