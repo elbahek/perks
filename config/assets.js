@@ -12,6 +12,7 @@ module.exports = function(cfg) {
     },
     scripts: {
       thirdParty: [
+        cfg.bowerDir + '/lodash/lodash.js',
         cfg.bowerDir + '/jquery/dist/jquery.js',
         cfg.bowerDir + '/bootstrap/dist/js/bootstrap.js',
         cfg.bowerDir + '/angular/angular.js',
@@ -20,6 +21,7 @@ module.exports = function(cfg) {
       app: [
         cfg.appDir + '/perks.module.js',
         cfg.appDir + '/directives/main-menu.js',
+        cfg.appDir + '/services/data.js',
         cfg.appDir + '/controllers/main.js'
       ]
     },

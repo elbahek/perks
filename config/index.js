@@ -23,7 +23,8 @@ var config = {
   bowerDir: siteDir + '/bower_components',
   appDir: siteDir + '/app',
   distDir: siteDir + '/' + distDir,
-  publicDir: siteDir + '/public'
+  publicDir: siteDir + '/public',
+  dataDir: siteDir + '/data'
 };
 
 var assets = require('./assets')(config);
