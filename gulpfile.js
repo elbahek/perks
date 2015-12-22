@@ -167,7 +167,7 @@ gulp.task('inject', [
 // browser sync server
 gulp.task('browserSync', function() {
   browserSync.init({
-    server: {baseDir: './gh-pages'},
+    server: {baseDir: config.distDir},
     notify: false,
     open: false
   });
