@@ -10,7 +10,7 @@ var PerksModule = angular.module('PerksModule', [
 PerksModule.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: '/views/pages/main.html'
+      templateUrl: '/views/pages/home.html'
     })
     .when('/traits', {
       templateUrl: '/views/pages/traits.html'

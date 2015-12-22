@@ -16,6 +16,9 @@ module.exports = function(cfg) {
         cfg.appDir + '/perks.module.js',
         cfg.appDir + '/controllers/main.js'
       ]
-    }
+    },
+    fonts: [
+      cfg.publicDir + '/icomoon/fonts/*'
+    ]
   };
 };

@@ -9,7 +9,9 @@
   <!-- endinject -->
 </head>
 <body ng-app="PerksModule">
-  <div class="page-wrapper" ng-view></div>
+  <div ng-controller="MainController">
+    <div class="page-wrapper" ng-view></div>
+  </div>
 
   <!-- inject:js -->
   <!-- endinject -->
