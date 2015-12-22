@@ -17,7 +17,9 @@
   "predef"        : [
     "angular",
     "ENV_DEVELOPMENT",
-    "ENV_PRODUCTION"
+    "ENV_PRODUCTION",
+    "ENV_DIST_DIR_DEVELOPMENT",
+    "ENV_DIST_DIR_PRODUCTION"
   ],
 
 
