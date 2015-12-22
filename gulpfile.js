@@ -18,7 +18,8 @@ var path = require('path'),
   jshintStylish = require('jshint-stylish'),
   jscs = require('gulp-jscs'),
   replace = require('gulp-replace'),
-  rename = require('gulp-rename');
+  rename = require('gulp-rename'),
+  del = require('del');
 
 var config = require('./config');
 
@@ -37,6 +38,13 @@ function transformPaths(filePath) {
 
   return filePath;
 }
+
+// clean task (run to clean public dirs, build dirs etc)
+gulp.task('clean', function() {
+  del.sync([
+    config.distDir + '/*'
+  ]);
+});
 
 // copy fonts into dist dir
 // css styles are copied in "copyThirdPartyStyles"
@@ -217,6 +225,7 @@ gulp.task('serve', [
 ]);
 
 gulp.task('build', [
+  'clean', // synchronous
   'copyAppViews',
   'copyFonts',
   'inject'
