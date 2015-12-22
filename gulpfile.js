@@ -35,6 +35,13 @@ function transformPaths(filePath) {
   return filePath;
 }
 
+// copy fonts into dist dir
+// css styles are copied in "copyThirdPartyStyles"
+gulp.task('copyFonts', function() {
+  return gulp.src(config.assets.fonts)
+    .pipe(gulp.dest(config.distDir + '/fonts'));
+});
+
 // copy views to dist dir
 gulp.task('copyAppViews', function() {
   return gulp.src(config.appDir + '/views/**/*.html', {base: config.appDir + '/views'})
@@ -144,6 +151,9 @@ gulp.task('browserReloadOnAppScripts', ['copyAppScripts'], browserSync.reload);
 // ensure browser reload on views change
 gulp.task('browserReloadOnAppViews', ['copyAppViews'], browserSync.reload);
 
+// ensure browser reload on fonts change
+gulp.task('browserReloadOnFonts', ['copyFonts'], browserSync.reload);
+
 gulp.task('watch', function() {
   gulp.watch(config.appDir + '/index.html', ['browserReloadAfterInject']);
   advancedWatch(jshintedFiles, function() {
@@ -159,6 +169,9 @@ gulp.task('watch', function() {
   advancedWatch(config.appDir + '/views/**/*.html', function() {
     gulp.start('browserReloadOnAppViews');
   });
+  advancedWatch(config.assets.fonts, function() {
+    gulp.start('browserReloadOnFonts');
+  });
 });
 
 gulp.task('serve', [
@@ -166,12 +179,14 @@ gulp.task('serve', [
   'jshint',
   'jscs',
   'copyAppViews',
+  'copyFonts',
   'inject',
   'watch'
 ]);
 
 gulp.task('build', [
   'copyAppViews',
+  'copyFonts',
   'inject'
 ]);
 
