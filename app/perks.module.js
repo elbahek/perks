@@ -1,7 +1,8 @@
 'use strict';
 
 var PerksModule = angular.module('PerksModule', [
-  'ngRoute'
+  'ngRoute',
+  'angular.filter'
 ]);
 
 /**

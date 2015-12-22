@@ -1,22 +1,6 @@
 {
   "perks": [
     {
-      "name": "Brown Noser",
-      "level": 2,
-      "ranks": 2,
-      "requirements": {
-        "stats": {
-          "ch": 5,
-          "in": 6
-        },
-        "races": {
-          "deathclaw": false,
-          "dog": false
-        }
-      },
-      "summary": "+1 CH for reactions"
-    },
-    {
       "name": "Awareness",
       "level": 3,
       "ranks": 1,
@@ -42,6 +26,33 @@
         }
       },
       "summary": "+10% to Speech and Barter"
+    },
+    {
+      "name": "Brown Noser",
+      "level": 2,
+      "ranks": 2,
+      "requirements": {
+        "stats": {
+          "ch": 5,
+          "in": 6
+        },
+        "races": {
+          "deathclaw": false,
+          "dog": false
+        }
+      },
+      "summary": "+1 CH for reactions"
+    },
+    {
+      "name": "Ghost",
+      "level": 6,
+      "ranks": 1,
+      "requirements": {
+        "skills": {
+          "sneak": 60
+        }
+      },
+      "summary": "+20% to sneak in darkness"
     }
   ]
 }
