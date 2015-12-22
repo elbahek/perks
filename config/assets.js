@@ -4,7 +4,7 @@ module.exports = function(cfg) {
   return {
     styles: {
       thirdParty: [
-        cfg.publicDir + '/icomoon/style.css'
+        cfg.publicDir + '/icomoon/icomoon-fixed.css'
       ],
       app: [
         cfg.appDir + '/assets/main.less'

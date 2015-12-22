@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path'),
+  fs = require('fs'),
   _ = require('lodash'),
   gulp = require('gulp'),
   concat = require('gulp-concat'),
@@ -15,7 +16,9 @@ var path = require('path'),
   cache = require('gulp-cached'),
   jshint = require('gulp-jshint'),
   jshintStylish = require('jshint-stylish'),
-  jscs = require('gulp-jscs');
+  jscs = require('gulp-jscs'),
+  replace = require('gulp-replace'),
+  rename = require('gulp-rename');
 
 var config = require('./config');
 
@@ -49,8 +52,25 @@ gulp.task('copyAppViews', function() {
     .pipe(gulp.dest(config.distDir + '/views'));
 });
 
+// fix incorrect paths in icomoon style.css
+gulp.task('fixPathsIcomoon', function(cb) {
+  try {
+    fs.accessSync(config.publicDir + '/icomoon/icomoon-fixed.css', fs.F_OK | fs.F_OK | fs.W_OK);
+    console.log('try');
+  }
+  catch(e) {
+    console.log('catch');
+    return gulp.src(config.publicDir + '/icomoon/style.css')
+      .pipe(replace("'fonts/icomoon.", "'../fonts/icomoon."))
+      .pipe(rename('icomoon-fixed.css'))
+      .pipe(gulp.dest(config.publicDir + '/icomoon'));
+  }
+
+  cb();
+});
+
 // copy third-party styles to dist dir
-gulp.task('copyThirdPartyStyles', function() {
+gulp.task('copyThirdPartyStyles', ['fixPathsIcomoon'], function() {
   return gulp.src(config.assets.styles.thirdParty)
     .pipe(gulpif(config.environment === ENV_PRODUCTION, minify()))
     .pipe(gulpif(config.environment === ENV_PRODUCTION, concat('third-party.min.css')))
