@@ -3,6 +3,9 @@
 module.exports = function(cfg) {
   return {
     styles: {
+      thirdParty: [
+        cfg.publicDir + '/icomoon/style.css'
+      ],
       app: [
         cfg.appDir + '/assets/main.less'
       ]

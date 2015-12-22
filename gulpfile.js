@@ -49,6 +49,15 @@ gulp.task('copyAppViews', function() {
     .pipe(gulp.dest(config.distDir + '/views'));
 });
 
+// copy third-party styles to dist dir
+gulp.task('copyThirdPartyStyles', function() {
+  return gulp.src(config.assets.styles.thirdParty)
+    .pipe(gulpif(config.environment === ENV_PRODUCTION, minify()))
+    .pipe(gulpif(config.environment === ENV_PRODUCTION, concat('third-party.min.css')))
+    .pipe(gulp.dest(config.distDir + '/css'))
+    .pipe(gulpif(config.environment === ENV_DEVELOPMENT, browserSync.stream()));
+});
+
 // compile less and copy to dist dir
 gulp.task('copyAppStyles', function() {
   return gulp.src(config.assets.styles.app)
@@ -102,6 +111,7 @@ gulp.task('copyAppScripts', function() {
 gulp.task('inject', [
     'copyThirdPartyScripts',
     'copyAppScripts',
+    'copyThirdPartyStyles',
     'copyAppStyles'
   ],
   function() {
@@ -113,6 +123,7 @@ gulp.task('inject', [
         appStylesCompiled.push(config.distDir + '/css/' + newFile);
       });
       files = [].concat(
+        config.assets.styles.thirdParty,
         appStylesCompiled,
         config.assets.scripts.thirdParty,
         config.assets.scripts.app
@@ -160,6 +171,7 @@ gulp.task('watch', function() {
     gulp.start('jshint');
     gulp.start('jscs');
   });
+  gulp.watch(config.assets.styles.thirdParty, ['copyThirdPartyStyles']);
   advancedWatch(config.appDir + '/assets/**/*.less', function() {
     gulp.start('copyAppStyles');
   });
