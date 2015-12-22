@@ -7,12 +7,17 @@ var PerksModule = angular.module('PerksModule', [
 /**
  * Routing
  */
-PerksModule.config(['$routeProvider', function($routeProvider) {
+PerksModule.config([
+  '$routeProvider',
+  '$locationProvider',
+  function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: '/views/pages/main.html'
+      templateUrl: '/views/pages/home.html'
     })
     .when('/traits', {
       templateUrl: '/views/pages/traits.html'
     });
+
+  $locationProvider.html5Mode(true);
 }]);

@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Perks</title>
+  <base href="/">
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:normal,bold|Roboto:normal,bold,900&subset=latin,cyrillic" rel="stylesheet" type="text/css">
   <!-- inject:css -->
   <!-- endinject -->
 </head>
 <body ng-app="PerksModule">
-  <div class="page-wrapper" ng-view></div>
+  <div ng-controller="MainController">
+    <div main-menu id="main-menu"></div>
+    <div class="page-wrapper" ng-view></div>
+  </div>
 
   <!-- inject:js -->
   <!-- endinject -->

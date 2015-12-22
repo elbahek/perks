@@ -35,11 +35,27 @@ function transformPaths(filePath) {
   return filePath;
 }
 
+// copy fonts into dist dir
+// css styles are copied in "copyThirdPartyStyles"
+gulp.task('copyFonts', function() {
+  return gulp.src(config.assets.fonts)
+    .pipe(gulp.dest(config.distDir + '/fonts'));
+});
+
 // copy views to dist dir
 gulp.task('copyAppViews', function() {
   return gulp.src(config.appDir + '/views/**/*.html', {base: config.appDir + '/views'})
     .pipe(cache('appViews'))
     .pipe(gulp.dest(config.distDir + '/views'));
+});
+
+// copy third-party styles to dist dir
+gulp.task('copyThirdPartyStyles', function() {
+  return gulp.src(config.assets.styles.thirdParty)
+    .pipe(gulpif(config.environment === ENV_PRODUCTION, minify()))
+    .pipe(gulpif(config.environment === ENV_PRODUCTION, concat('third-party.min.css')))
+    .pipe(gulp.dest(config.distDir + '/css'))
+    .pipe(gulpif(config.environment === ENV_DEVELOPMENT, browserSync.stream()));
 });
 
 // compile less and copy to dist dir
@@ -95,6 +111,7 @@ gulp.task('copyAppScripts', function() {
 gulp.task('inject', [
     'copyThirdPartyScripts',
     'copyAppScripts',
+    'copyThirdPartyStyles',
     'copyAppStyles'
   ],
   function() {
@@ -106,6 +123,7 @@ gulp.task('inject', [
         appStylesCompiled.push(config.distDir + '/css/' + newFile);
       });
       files = [].concat(
+        config.assets.styles.thirdParty,
         appStylesCompiled,
         config.assets.scripts.thirdParty,
         config.assets.scripts.app
@@ -144,12 +162,16 @@ gulp.task('browserReloadOnAppScripts', ['copyAppScripts'], browserSync.reload);
 // ensure browser reload on views change
 gulp.task('browserReloadOnAppViews', ['copyAppViews'], browserSync.reload);
 
+// ensure browser reload on fonts change
+gulp.task('browserReloadOnFonts', ['copyFonts'], browserSync.reload);
+
 gulp.task('watch', function() {
   gulp.watch(config.appDir + '/index.html', ['browserReloadAfterInject']);
   advancedWatch(jshintedFiles, function() {
     gulp.start('jshint');
     gulp.start('jscs');
   });
+  gulp.watch(config.assets.styles.thirdParty, ['copyThirdPartyStyles']);
   advancedWatch(config.appDir + '/assets/**/*.less', function() {
     gulp.start('copyAppStyles');
   });
@@ -159,6 +181,9 @@ gulp.task('watch', function() {
   advancedWatch(config.appDir + '/views/**/*.html', function() {
     gulp.start('browserReloadOnAppViews');
   });
+  advancedWatch(config.assets.fonts, function() {
+    gulp.start('browserReloadOnFonts');
+  });
 });
 
 gulp.task('serve', [
@@ -166,12 +191,14 @@ gulp.task('serve', [
   'jshint',
   'jscs',
   'copyAppViews',
+  'copyFonts',
   'inject',
   'watch'
 ]);
 
 gulp.task('build', [
   'copyAppViews',
+  'copyFonts',
   'inject'
 ]);
 

@@ -21,7 +21,8 @@ var config = {
   siteDir: siteDir,
   bowerDir: siteDir + '/bower_components',
   appDir: siteDir + '/app',
-  distDir: siteDir + '/gh-pages'
+  distDir: siteDir + '/gh-pages',
+  publicDir: siteDir + '/public'
 };
 
 var assets = require('./assets')(config);
