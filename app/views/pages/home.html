@@ -1,1 +1,43 @@
-<h1>Home</h1>
+<div id="page-home" class="page">
+  <div class="container-fluid">
+    <div class="col-lg-22 col-lg-offset-1 col-md-24 col-sm-24 col-xs-24">
+      <div class="table-responsive">
+        <table id="perks-table" class="table table-bordered table-condensed">
+          <thead>
+            <tr class="success">
+              <th>Name</th>
+              <th>Ranks</th>
+              <th>ST</th>
+              <th>PE</th>
+              <th>EN</th>
+              <th>CH</th>
+              <th>IN</th>
+              <th>AG</th>
+              <th>LK</th>
+              <th>Skill/Race Requirements</th>
+              <th>Summary</th>
+            </tr>
+          </thead>
+          <tbody ng-repeat="level in data.perks | filter:search | groupBy:'level' | orderBy:'level'">
+            <tr class="warning tr-level-separator" ng-show="level.length">
+              <td colspan="11">Level {{level[0].level}} perks</td>
+            </tr>
+            <tr ng-repeat="perk in level | orderBy:'name'">
+              <td>{{perk.name}}</td>
+              <td>{{perk.ranks}}</td>
+              <td>{{perk.requirements.stats.st}}</td>
+              <td>{{perk.requirements.stats.pe}}</td>
+              <td>{{perk.requirements.stats.en}}</td>
+              <td>{{perk.requirements.stats.ch}}</td>
+              <td>{{perk.requirements.stats.in}}</td>
+              <td>{{perk.requirements.stats.ag}}</td>
+              <td>{{perk.requirements.stats.lk}}</td>
+              <td>{{perk.requirements.other}}</td>
+              <td>{{perk.summary}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
