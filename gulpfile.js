@@ -77,10 +77,8 @@ gulp.task('copyAppViews', function() {
 gulp.task('fixPathsIcomoon', function(cb) {
   try {
     fs.accessSync(config.publicDir + '/icomoon/icomoon-fixed.css', fs.F_OK | fs.F_OK | fs.W_OK);
-    console.log('try');
   }
   catch(e) {
-    console.log('catch');
     return gulp.src(config.publicDir + '/icomoon/style.css')
       .pipe(replace("'fonts/icomoon.", "'../fonts/icomoon."))
       .pipe(rename('icomoon-fixed.css'))
@@ -172,6 +170,7 @@ gulp.task('inject', [
     }
     else if (config.environment === ENV_PRODUCTION) {
       files = [
+        config.distDir + '/css/third-party.min.css',
         config.distDir + '/css/app.min.css',
         config.distDir + '/js/third-party.min.js',
         config.distDir + '/js/app.min.js'

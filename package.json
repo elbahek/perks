@@ -1,6 +1,6 @@
 {
   "name": "perks",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "List of perks for old Fallout PnP",
   "main": "gulpfile.js",
   "scripts": {
