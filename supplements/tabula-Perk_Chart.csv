@@ -1,0 +1,112 @@
+Brown Noser ,2,2 ,"","","",5 ,6 ,"","",(No Deathclaws / Dogs) ,+1 CH for reactions
+Die Hard ,2,1 ,"","",6 ,"","","","",First Aid 40% ,10% DR when hp < 20%
+Awareness ,3,1 ,"",5 ,"","","","","","",See HP’s and weapons of enemies
+Bonus HtH Damage ,3,3 ,6 ,"","","","",6 ,"","",+2 Melee Damage per level 
+Cautious Nature ,3,1 ,"",6 ,"","","","","","",+3 PE in random encounter placement 
+Comprehension ,3,1 ,"","","","",6 ,"","",(No Dogs) ,+50% skill points from reading 
+Drunken Master ,3,1 ,"","","","","","","",Unarmed 60% ,+20% Unarmed when under the influence 
+Earlier Sequence ,3,3 ,"",6 ,"","","","","","",+2 Sequence per level 
+Faster Healing ,3,3 ,"","",6 ,"","","","","",+2 Healing Rate per level 
+Gunner ,3,1 ,"","","","","",6 ,"",Small Guns 40% ,No 10% penalty when firing from vehicle 
+Healer ,3,2 ,"",7 ,"","",5 ,6 ,"",First Aid 40% ,Increase HP healed by 4-10 per rank 
+Kama Sutra Master ,3,1 ,"","",5 ,"","",5 ,"","",Stamina and skill in bed 
+Leadfoot ,3,1 ,"",6 ,"","","",6 ,"",Pilot 60% ,Increase vehicle max speed by 25% 
+Night Vision ,3,1 ,"",6 ,"","","","","","",Negative mods for darkness reduced 50% 
+Quick Pockets ,3,1 ,"","","","","",5 ,"","",2 AP to swap equipment 
+Rad Child ,3,1 ,"","",6 ,"","","","",(Only Ghouls) ,+5 to Healing Rate in 10+ rad source 
+Scout ,3,1 ,"",7 ,"","","","","","",Maps easier to read
+Smooth Talker ,3,3 ,"","","","",4 ,"","",(No Dogs) ,+1 IN per level when dealing with NPCs
+Stat! ,3,1 ,"","","","","",6 ,"","First Aid 75%, Doctor 50% ",5 AP for healing
+Stonewall ,3,1 ,6 ,"","","","","","","",50% to avoid knockdown
+Strong Back ,3,2 ,6 ,"",6 ,"","","","","",+50lbs Carry Weight per level
+Survivalist ,3,3 ,"","",6 ,"","",6 ,"",Outdoorsman 40% ,+25% to Outdoorsman skill
+Swift Learner ,3,3 ,"","","","",4 ,"","","",+5% to earned XP
+Theif ,3,1 ,"","","","","","","",(No Deathclaws/Dogs) ,"+10% to Sneak, Lockpick, Steal, and Traps "
+Toughness ,3,1 ,"","",6 ,"","","",6 ,"",+10% to all DR types
+Bracing ,4,1 ,7 ,"","","","","","","Big Guns 80%, (No Deathclaws / Dogs) ",Bonus for tripod while holding
+Death Sense ,4,1  ,"","","","",5 ,"","",(Only Deathclaws) ,"+2 PE, -50% light penalty, +25% detect  "
+Flexible ,4,1 ,"","","","","",6 ,"",Sneak 60% ,1 AP to change stance
+Hit the Deck! ,4,1 ,"","","","","",6 ,"","",+50% to Explosive DR
+Leader ,4,1 ,"","","",6 ,"","","","",Close party gains +1 AG and +5 AC
+Loner ,4,1 ,"","","",< 5 ,"","","",Outdoorsman 50% ,+10% to all skills when alone
+Steady Aim ,4,1 ,6 ,"","","","","","",(Only Mutants) ,Burst attacks cost –1 AP
+Tunnel Rat ,4,1 ,"","","","","",6 ,"",Sneak 60% ,1 AP move while crouch or prone
+Adrenaline Rush ,6,1 ,1-9 ,"","","","","","","",+1 ST when HP < 50% max
+Bonus Move ,6,2 ,"","","","","",5 ,"","",2 free hex moves in combat per level
+Bonus Ranged Damage ,6,2 ,"","","","","",6 ,6 ,(No Deathclaws / Dogs) ,+2 ranged damage per level
+Cancerous Growth ,6,1 ,< 7 ,"","","","","","",(Only Ghouls) ,"+2 to Healing Rate, Regen in 48 Hrs "
+Educated ,6,3 ,"","","","",6 ,"","","",+2 Skill Points each level gain
+Empathy ,6,1 ,"",7 ,"","",5 ,"","","",Know when others interpreted wrongly
+Fortune Finder ,6,1 ,"","","","","","",8 ,"",More money in random encounters
+Gambler ,6,1 ,"","","","","","","",Gambling 50% ,+20% to Gambling skill
+Ghost ,6,1 ,"","","","","","","",Sneak 60% ,+20% to sneak in darkness
+Harmless ,6,1 ,"","","","","","","","Steal 50%, Karma > 49, (No Deathclaws) ",+20% to steal
+Heave Ho! ,6,3 ,"","","","","","","","",+2 ST for thrown weapons only
+More Criticals ,6,3 ,"","","","","","",6 ,(No Mutants) ,+5% Critical Chance per level
+Negotiator ,6,1 ,"","","","","","","","Barter 50%, Speech 50%, (No Deathclaws / Dogs) ",+10% to Speech and Barter
+Pack Rat ,6,2 ,"","","","","","","","",+10lbs to Carry Weight
+Pathfinder ,6,1 ,"","",6 ,"","","","",Outdoorsman 60% ,Reduce travel time by 25%
+Pressence ,6,3 ,"","","",6 ,"","","","",+1 CH for reaction rolls per level
+Quick Recovery ,6,1 ,"","","","","",5 ,"","",1 AP to stand up after being knocked down
+Rad Resistance ,6,2 ,"","",6 ,"",4 ,"","","",+15% Radiation Resistance per level
+Ranger ,6,1 ,"",6 ,"","","","","","",+15% to Outdoorsman
+Salesman ,6,1 ,"","","","","","","","Barter 50%, (No Deathclaws / Dogs) ",+20% to Barter
+Silent Running ,6,1 ,"","","","","",6 ,"",Sneak 50% ,Run and sneak simultaneously
+Snakeater ,6,1 ,"","",3 ,"","","","","",+25% Poison Resistance
+Stunt Devil ,6,2 ,6 ,"",6 ,"","",6 ,"",(No Dogs) ,"25% less damage from fall/crash, +10% Pilot  "
+Way of the Fruit ,6,1 ,"","","",6 ,"","","",(No Deathclaws/Dogs) ,+1 PE and AG after eating fruit
+Bone Head ,7,2 ,7 ,"","","","","","","",%50 (75%) to avoid being unconsciousness
+Bluff Master ,8,1 ,"","","",3 ,"","","","","When caught stealing, talk your way out "
+Brutish Hulk ,8,1 ,7 ,"",5 ,"","","","",(Only Deathclaws) ,Double normal HP when leveling
+Psychotic ,8,1 ,"","",5 ,"","","","",(Only Mutants and Half Mutants) ,"Effects of Psycho are doubled, addiction 1/2 "
+Animal Friend ,9,1 ,"","","","",5 ,"","",Outdoorsman 25% ,Animals will not attack
+Better Criticals ,9,1 ,"",6 ,"","","",4 ,6 ,(No Mutants) ,"+150% damage, +50% damage to limbs "
+Crazy Bomber ,9,1 ,"","","","",6 ,"","","Traps 60%, (No Deathclaws / Dogs) ",Know when explosive improperly set
+Demolition Expert ,9,1 ,"","","","","",4 ,"","Traps 90%, (No Deathclaws / Dogs) ",50% more damage to explosives
+Dodger ,9,2 ,"","","","","",6 ,"","",+5 AC per rank
+Driving City Style ,9,1 ,"",6 ,"","","",5 ,"",(No Deathclaws / Dogs) ,"30% Pilot, +2 bonus when driving "
+Explorer ,9,1 ,"","","","","","","","",Better chance to find interesting things
+Flower Child ,9,1 ,"","",5 ,"","","","","","50% against addiction, 50% withdrawal "
+Here and Now ,9,1 ,"","","","","","","","",Gain a level
+Karma Beacon ,9,1 ,"","","",6 ,"","","","",Karma doubled for reactions
+Light Step ,9,1 ,"","","","","",5 ,5 ,"",+4 AG against triggering traps
+Master Trader ,9,1 ,"","","",7 ,"","","","Barter 60%, (No Deathclaws / Dogs) ",30% Barter
+Mutate ,9,1 ,"","","","","","","","",Switch Traits
+Mysterious Stranger ,9,1 ,"","","","","","",4 ,"",Chance to gain temporary ally
+Pyromaniac ,9,1 ,"","","","","","","",Big Guns 75% ,+5 damage with fire-based weapons
+Scrounger ,9,1 ,"","","","","","",8 ,"",Double ammunition found
+Sharpshooter ,9,1 ,"",7 ,"","",6 ,"","","",+2 PE to determine range modifiers
+Speaker ,9,1 ,"","","","","","","","Speech 50%, (No Deathclaws / Dogs) ",20% Speech
+Hide of Scars ,10,2 ,"","",6 ,"","","","",(Only Deathclaws) ,+15% to all Resistances except fire
+Action Boy (or Girl) ,12,2 ,"","","","","",5 ,"","",+1 AP per combat per level
+Bonsai ,12,1 ,"","","","","","","","Outdoorsman 50%, Science 40%, (Only Ghouls) ",Steady supply of fruit
+Cult of Personality ,12,1 ,"","","",10 ,"","","","",Positive modifier for negative karma
+Gain Agility ,12,1 ,"","","","","","","","",+1 AP permanently
+Gain Charisma ,12,1 ,"","","","","","","","",+1 CH permanently
+Gain Endurance ,12,1 ,"","","","","","","","",+1 EN permanently
+Gain Intelligence ,12,1 ,"","","","","","","","",+1 IN permanently
+Gain Luck ,12,1 ,"","","","","","","","",+1 LK permanently
+Gain Perception ,12,1 ,"","","","","","","","",+1 PE permanently
+Gain Strength ,12,1 ,"","","","","","","","",+1 ST permanently
+HtH Evade ,12,1 ,"","","","","","","",Unarmed 75% ,+3 to AC per AP at end of combat turn
+Livegiver ,12,2 ,"","",4 ,"","","","","",+4 HP each level gain per level
+Living Anatomy ,12,1 ,"","","","","","","",Doctor 60% ,"+10% Doctor, +5 damage to living creatures "
+Master Theif ,12,1 ,"","","","","","","","Lockpick 50%, Steal 50%, (No Deathclaws / Dogs) ",+15% Lockpick and Steal
+Medic ,12,1 ,"","","","","","","",First Aid OR Doctor 40% ,+10% First Aid and Doctor
+Mr. (or Ms.) Fixit ,12,1 ,"","","","","","","","Repair OR Science 40%, (No Deathclaws / Dogs) ",+10% Science and Repair
+Road Warrior ,12,1 ,"","","","",6 ,"","","Pilot 60%, (No Deathclaws / Dogs) ",No penalties while driving and attacking
+Tag! ,12,1 ,"","","","","","","","",Pick an additional Tag skill
+Talon of Fear ,12,1 ,6 ,"","","","","","","Unarmed 60%, (Only Deathclaws) ",Unarmed attacks carry Type B poison
+Team Player ,12,1 ,"","","",4 ,"","","","",+10% all skills when entire party is near
+Tough Hide ,12,2 ,"","",< 8 ,"","","","",(Only Mutants) ,"+15 to AC, +10% to all Resistances "
+Weapon Handling ,12,1 ,"","","","","",5 ,"","",+3 ST for handling and firing weapons
+Divine Favor ,14,1 ,"","","",8 ,"","","","",Re-roll any roll once a day
+Bonus HtH Attacks ,15,1 ,"","","","","",6 ,"","",-1 AP cost of HtH or Melee attack
+Bonus Rate of Fire ,15,1 ,"",6 ,"","",6 ,7 ,"",(No Deathclaws / Dogs) ,-1 AP cost of Ranged attack
+Mental Block ,15,1 ,"","","","","","","","",+1 PE to determine range and find traps
+Pickpocket ,15,1 ,"","","","","",8 ,"","Steal 80%, (No Deathclaws / Dogs) ",+25% Steal
+Bend the Rules ,16,1 ,"","","","","","",6 ,"",Ignore restrictions but race for next perk
+Silent Death ,18,1 ,"","","","","",10 ,"","Sneak 80%, Unarmed 80% ",Double damage from behind while sneaking
+Break the Rules ,20,1 ,"","","","","","",6 ,"",Ignore restrictions and race for next perk
+Slayer ,24,1 ,8 ,"","","","",8 ,"",Unarmed 80% ,Critical Hit with HtH or Melee against LK
+Sniper ,24,1 ,"",8 ,"","","",8 ,"","Small Guns 80%, (No Deathclaws / Dogs) ",Critical Hit with Ranged against LK

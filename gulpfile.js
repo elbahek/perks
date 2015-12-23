@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path'),
+  fs = require('fs'),
   _ = require('lodash'),
   gulp = require('gulp'),
   concat = require('gulp-concat'),
@@ -15,7 +16,10 @@ var path = require('path'),
   cache = require('gulp-cached'),
   jshint = require('gulp-jshint'),
   jshintStylish = require('jshint-stylish'),
-  jscs = require('gulp-jscs');
+  jscs = require('gulp-jscs'),
+  replace = require('gulp-replace'),
+  rename = require('gulp-rename'),
+  del = require('del');
 
 var config = require('./config');
 
@@ -35,11 +39,62 @@ function transformPaths(filePath) {
   return filePath;
 }
 
+// clean task (run to clean public dirs, build dirs etc)
+gulp.task('clean', function() {
+  del.sync([
+    config.distDir + '/*'
+  ]);
+});
+
+// copy data into dist dir
+gulp.task('copyData', function() {
+  return gulp.src(config.dataDir + '/data.json', {base: config.siteDir})
+    .pipe(gulp.dest(config.distDir));
+});
+
+// copy images to dist dir
+gulp.task('copyImages', function() {
+  return gulp.src(config.publicDir + '/images/**/*', {base: config.publicDir})
+    .pipe(gulp.dest(config.distDir))
+    .pipe(gulpif(config.environment === ENV_DEVELOPMENT, browserSync.stream()));
+});
+
+// copy fonts into dist dir
+// css styles are copied in "copyThirdPartyStyles"
+gulp.task('copyFonts', function() {
+  return gulp.src(config.assets.fonts)
+    .pipe(gulp.dest(config.distDir + '/fonts'));
+});
+
 // copy views to dist dir
 gulp.task('copyAppViews', function() {
   return gulp.src(config.appDir + '/views/**/*.html', {base: config.appDir + '/views'})
     .pipe(cache('appViews'))
     .pipe(gulp.dest(config.distDir + '/views'));
+});
+
+// fix incorrect paths in icomoon style.css
+gulp.task('fixPathsIcomoon', function(cb) {
+  try {
+    fs.accessSync(config.publicDir + '/icomoon/icomoon-fixed.css', fs.F_OK | fs.F_OK | fs.W_OK);
+  }
+  catch(e) {
+    return gulp.src(config.publicDir + '/icomoon/style.css')
+      .pipe(replace("'fonts/icomoon.", "'../fonts/icomoon."))
+      .pipe(rename('icomoon-fixed.css'))
+      .pipe(gulp.dest(config.publicDir + '/icomoon'));
+  }
+
+  cb();
+});
+
+// copy third-party styles to dist dir
+gulp.task('copyThirdPartyStyles', ['fixPathsIcomoon'], function() {
+  return gulp.src(config.assets.styles.thirdParty)
+    .pipe(gulpif(config.environment === ENV_PRODUCTION, minify()))
+    .pipe(gulpif(config.environment === ENV_PRODUCTION, concat('third-party.min.css')))
+    .pipe(gulp.dest(config.distDir + '/css'))
+    .pipe(gulpif(config.environment === ENV_DEVELOPMENT, browserSync.stream()));
 });
 
 // compile less and copy to dist dir
@@ -95,6 +150,7 @@ gulp.task('copyAppScripts', function() {
 gulp.task('inject', [
     'copyThirdPartyScripts',
     'copyAppScripts',
+    'copyThirdPartyStyles',
     'copyAppStyles'
   ],
   function() {
@@ -106,6 +162,7 @@ gulp.task('inject', [
         appStylesCompiled.push(config.distDir + '/css/' + newFile);
       });
       files = [].concat(
+        config.assets.styles.thirdParty,
         appStylesCompiled,
         config.assets.scripts.thirdParty,
         config.assets.scripts.app
@@ -113,6 +170,7 @@ gulp.task('inject', [
     }
     else if (config.environment === ENV_PRODUCTION) {
       files = [
+        config.distDir + '/css/third-party.min.css',
         config.distDir + '/css/app.min.css',
         config.distDir + '/js/third-party.min.js',
         config.distDir + '/js/app.min.js'
@@ -129,7 +187,7 @@ gulp.task('inject', [
 // browser sync server
 gulp.task('browserSync', function() {
   browserSync.init({
-    server: {baseDir: './gh-pages'},
+    server: {baseDir: config.distDir},
     notify: false,
     open: false
   });
@@ -144,20 +202,36 @@ gulp.task('browserReloadOnAppScripts', ['copyAppScripts'], browserSync.reload);
 // ensure browser reload on views change
 gulp.task('browserReloadOnAppViews', ['copyAppViews'], browserSync.reload);
 
+// ensure browser reload on fonts change
+gulp.task('browserReloadOnFonts', ['copyFonts'], browserSync.reload);
+
+// ensure browser reload on data change
+gulp.task('browserReloadOnData', ['copyData'], browserSync.reload);
+
 gulp.task('watch', function() {
   gulp.watch(config.appDir + '/index.html', ['browserReloadAfterInject']);
   advancedWatch(jshintedFiles, function() {
     gulp.start('jshint');
     gulp.start('jscs');
   });
+  gulp.watch(config.assets.styles.thirdParty, ['copyThirdPartyStyles']);
+  advancedWatch(config.dataDir + '/**/*.json', function() {
+    gulp.start('browserReloadOnData');
+  });
   advancedWatch(config.appDir + '/assets/**/*.less', function() {
     gulp.start('copyAppStyles');
+  });
+  advancedWatch(config.publicDir + '/images/**/*', function() {
+    gulp.start('copyImages');
   });
   advancedWatch(config.appDir + '/**/*.js', function() {
     gulp.start('browserReloadOnAppScripts');
   });
   advancedWatch(config.appDir + '/views/**/*.html', function() {
     gulp.start('browserReloadOnAppViews');
+  });
+  advancedWatch(config.assets.fonts, function() {
+    gulp.start('browserReloadOnFonts');
   });
 });
 
@@ -166,12 +240,19 @@ gulp.task('serve', [
   'jshint',
   'jscs',
   'copyAppViews',
+  'copyData',
+  'copyImages',
+  'copyFonts',
   'inject',
   'watch'
 ]);
 
 gulp.task('build', [
+  'clean', // synchronous
   'copyAppViews',
+  'copyData',
+  'copyImages',
+  'copyFonts',
   'inject'
 ]);
 

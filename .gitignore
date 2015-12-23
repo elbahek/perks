@@ -6,4 +6,7 @@ node_modules
 bower_components
 
 # ENV
-.environment.json
+/.environment.json*
+
+# Development dist dir
+/dist

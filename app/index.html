@@ -3,13 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Perks</title>
+  <base href="/">
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:normal,bold|Roboto:normal,bold,900&subset=latin,cyrillic" rel="stylesheet" type="text/css">
   <!-- inject:css -->
   <!-- endinject -->
 </head>
 <body ng-app="PerksModule">
-  <div class="page-wrapper" ng-view></div>
+  <div ng-controller="MainController">
+    <header class="header">
+      <div main-menu id="main-menu"></div>
+    </header>
+
+    <div class="page-wrapper" ng-view></div>
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="col-lg-24 col-md-24 col-sm-24 col-xs-24">
+          <div id="copyrights">
+            Fallout, Prepare for the Future and related logos are trademarks or registered trademarks of Bethesda Softworks LLC in the U.S. and/or other countries. All Rights Reserved.
+          </div>
+          <div id="dates" data-toggle="tooltip" title="Oh no! You broke my PHP!">
+            2015 - &lt;?= date('Y') ?&gt;
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <!-- inject:js -->
   <!-- endinject -->
