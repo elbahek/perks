@@ -52,6 +52,13 @@ gulp.task('copyData', function() {
     .pipe(gulp.dest(config.distDir));
 });
 
+// copy images to dist dir
+gulp.task('copyImages', function() {
+  return gulp.src(config.publicDir + '/images/**/*', {base: config.publicDir})
+    .pipe(gulp.dest(config.distDir))
+    .pipe(gulpif(config.environment === ENV_DEVELOPMENT, browserSync.stream()));
+});
+
 // copy fonts into dist dir
 // css styles are copied in "copyThirdPartyStyles"
 gulp.task('copyFonts', function() {
@@ -215,6 +222,9 @@ gulp.task('watch', function() {
   advancedWatch(config.appDir + '/assets/**/*.less', function() {
     gulp.start('copyAppStyles');
   });
+  advancedWatch(config.publicDir + '/images/**/*', function() {
+    gulp.start('copyImages');
+  });
   advancedWatch(config.appDir + '/**/*.js', function() {
     gulp.start('browserReloadOnAppScripts');
   });
@@ -232,6 +242,7 @@ gulp.task('serve', [
   'jscs',
   'copyAppViews',
   'copyData',
+  'copyImages',
   'copyFonts',
   'inject',
   'watch'
@@ -241,6 +252,7 @@ gulp.task('build', [
   'clean', // synchronous
   'copyAppViews',
   'copyData',
+  'copyImages',
   'copyFonts',
   'inject'
 ]);
