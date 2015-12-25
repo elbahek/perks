@@ -7,7 +7,7 @@ PerksModule.directive('mainMenu', [
   function($location) {
     return {
       restrict: 'A',
-      templateUrl: '/views/components/main-menu.html',
+      templateUrl: 'views/components/main-menu.html',
       link: function($scope) {
         $scope.isActive = function(path) {
           return path === $location.path();

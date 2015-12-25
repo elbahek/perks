@@ -16,9 +16,11 @@ if ([ENV_DEVELOPMENT, ENV_PRODUCTION].indexOf(environment) === -1) {
   environment = ENV_PRODUCTION;
 }
 
-var distDir = environment === ENV_DEVELOPMENT ? ENV_DIST_DIR_DEVELOPMENT : ENV_DIST_DIR_PRODUCTION;
+var distDir = environment === ENV_DEVELOPMENT ? ENV_DIST_DIR_DEVELOPMENT : ENV_DIST_DIR_PRODUCTION
+  ,baseUrl = environment === ENV_PRODUCTION ? 'https://elbahek.github.io/perks/' : '/';
 var config = {
   environment: environment,
+  baseUrl: baseUrl,
   siteDir: siteDir,
   bowerDir: siteDir + '/bower_components',
   appDir: siteDir + '/app',
