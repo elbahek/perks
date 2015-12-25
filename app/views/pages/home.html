@@ -23,7 +23,12 @@
               <td colspan="11">Level {{level[0].level}} perks</td>
             </tr>
             <tr ng-repeat="perk in level | orderBy:'name'">
-              <td>{{perk.name}}</td>
+              <td class="td-name">
+                {{perk.name}}
+                <i class="icon-exclamation-circle new-perk-icon"
+                   ng-if="!perk.isOriginal"
+                   title="New or modified perk"></i>
+              </td>
               <td>{{perk.ranks}}</td>
               <td class="td-stat">{{perk.requirements.stats.st}}</td>
               <td class="td-stat">{{perk.requirements.stats.pe}}</td>
