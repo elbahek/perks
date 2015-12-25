@@ -25,13 +25,13 @@
             <tr ng-repeat="perk in level | orderBy:'name'">
               <td>{{perk.name}}</td>
               <td>{{perk.ranks}}</td>
-              <td>{{perk.requirements.stats.st}}</td>
-              <td>{{perk.requirements.stats.pe}}</td>
-              <td>{{perk.requirements.stats.en}}</td>
-              <td>{{perk.requirements.stats.ch}}</td>
-              <td>{{perk.requirements.stats.in}}</td>
-              <td>{{perk.requirements.stats.ag}}</td>
-              <td>{{perk.requirements.stats.lk}}</td>
+              <td class="td-stat">{{perk.requirements.stats.st}}</td>
+              <td class="td-stat">{{perk.requirements.stats.pe}}</td>
+              <td class="td-stat">{{perk.requirements.stats.en}}</td>
+              <td class="td-stat">{{perk.requirements.stats.ch}}</td>
+              <td class="td-stat">{{perk.requirements.stats.in}}</td>
+              <td class="td-stat">{{perk.requirements.stats.ag}}</td>
+              <td class="td-stat">{{perk.requirements.stats.lk}}</td>
               <td>{{perk.requirements.other}}</td>
               <td>{{perk.summary}}</td>
             </tr>
