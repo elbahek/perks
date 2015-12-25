@@ -27,7 +27,7 @@ function transformPaths(filePath) {
   var extension = path.extname(filePath).replace('.', '').toLowerCase();
   var fileName = path.basename(filePath);
   if (['js', 'css'].indexOf(extension) !== -1) {
-    filePath = '/' + extension + '/' + fileName;
+    filePath = extension + '/' + fileName;
   }
   if (extension === 'js') {
     filePath = '<script type="text/javascript" src="' + filePath + '"></script>';
@@ -179,6 +179,7 @@ gulp.task('inject', [
     var sources = gulp.src(files, {read: false});
 
     return gulp.src(config.appDir + '/index.html')
+      .pipe(replace('%baseUrl%', config.baseUrl))
       .pipe(inject(sources, {transform: transformPaths}))
       .pipe(gulp.dest(config.distDir));
   }

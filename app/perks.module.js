@@ -14,10 +14,10 @@ PerksModule.config([
   function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: '/views/pages/home.html'
+      templateUrl: 'views/pages/home.html'
     })
     .when('/traits', {
-      templateUrl: '/views/pages/traits.html'
+      templateUrl: 'views/pages/traits.html'
     });
 
   $locationProvider.html5Mode(true);
