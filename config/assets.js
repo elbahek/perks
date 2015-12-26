@@ -17,7 +17,8 @@ module.exports = function(cfg) {
         cfg.bowerDir + '/bootstrap/dist/js/bootstrap.js',
         cfg.bowerDir + '/angular/angular.js',
         cfg.bowerDir + '/angular-route/angular-route.js',
-        cfg.bowerDir + '/angular-filter/dist/angular-filter.js'
+        cfg.bowerDir + '/angular-filter/dist/angular-filter.js',
+        cfg.bowerDir + '/fsm-sticky-header/src/fsm-sticky-header.js'
       ],
       app: [
         cfg.appDir + '/perks.module.js',

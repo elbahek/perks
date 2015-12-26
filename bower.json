@@ -21,6 +21,7 @@
     "angular-route": "~1.4.8",
     "lodash": "~3.10.1",
     "angular-filter": "~0.5.8",
-    "bootswatch": "~3.3.6"
+    "bootswatch": "~3.3.6",
+    "fsm-sticky-header": "*"
   }
 }

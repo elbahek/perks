@@ -6,5 +6,31 @@
         font-weight: bold;
       }
     }
+    .th-summary {
+      position: relative;
+      .search-form {
+        position: absolute;
+        bottom: @table-condensed-cell-padding;
+        right: @table-condensed-cell-padding;
+        margin-bottom: 0;
+        font-weight: normal;
+        .search-input-icon {
+          .custom-input-icon;
+        }
+      }
+    }
+    .td-stat {
+      white-space: nowrap;
+    }
+    .td-name {
+      position: relative;
+      .new-perk-icon {
+        color: @brand-info;
+        font-size: smaller;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
   }
 }

@@ -19,7 +19,8 @@ var path = require('path'),
   jscs = require('gulp-jscs'),
   replace = require('gulp-replace'),
   rename = require('gulp-rename'),
-  del = require('del');
+  del = require('del'),
+  jsonMinify = require('gulp-jsonminify');
 
 var config = require('./config');
 
@@ -49,6 +50,7 @@ gulp.task('clean', function() {
 // copy data into dist dir
 gulp.task('copyData', function() {
   return gulp.src(config.dataDir + '/data.json', {base: config.siteDir})
+    .pipe(jsonMinify())
     .pipe(gulp.dest(config.distDir));
 });
 

@@ -3,7 +3,7 @@
     <div class="col-lg-22 col-lg-offset-1 col-md-24 col-sm-24 col-xs-24">
       <div class="table-responsive">
         <table id="perks-table" class="table table-bordered table-condensed">
-          <thead>
+          <thead fsm-sticky-header scroll-body="'#perks-table'" scroll-stop="0">
             <tr class="success">
               <th>Name</th>
               <th>Ranks</th>
@@ -15,7 +15,13 @@
               <th>AG</th>
               <th>LK</th>
               <th>Skill/Race Requirements</th>
-              <th>Summary</th>
+              <th class="th-summary">
+                <span>Summary</span>
+                <div class="form-group has-feedback search-form">
+                  <input type="text" class="form-control" placeholder="Search" ng-model="search.name">
+                  <i class="form-control-feedback icon-search search-input-icon"></i>
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody ng-repeat="level in data.perks | filter:search | groupBy:'level' | orderBy:'level'">
@@ -23,15 +29,20 @@
               <td colspan="11">Level {{level[0].level}} perks</td>
             </tr>
             <tr ng-repeat="perk in level | orderBy:'name'">
-              <td>{{perk.name}}</td>
+              <td class="td-name">
+                {{perk.name}}
+                <i class="icon-exclamation-circle new-perk-icon"
+                   ng-if="!perk.isOriginal"
+                   title="New or modified perk"></i>
+              </td>
               <td>{{perk.ranks}}</td>
-              <td>{{perk.requirements.stats.st}}</td>
-              <td>{{perk.requirements.stats.pe}}</td>
-              <td>{{perk.requirements.stats.en}}</td>
-              <td>{{perk.requirements.stats.ch}}</td>
-              <td>{{perk.requirements.stats.in}}</td>
-              <td>{{perk.requirements.stats.ag}}</td>
-              <td>{{perk.requirements.stats.lk}}</td>
+              <td class="td-stat">{{perk.requirements.stats.st}}</td>
+              <td class="td-stat">{{perk.requirements.stats.pe}}</td>
+              <td class="td-stat">{{perk.requirements.stats.en}}</td>
+              <td class="td-stat">{{perk.requirements.stats.ch}}</td>
+              <td class="td-stat">{{perk.requirements.stats.in}}</td>
+              <td class="td-stat">{{perk.requirements.stats.ag}}</td>
+              <td class="td-stat">{{perk.requirements.stats.lk}}</td>
               <td>{{perk.requirements.other}}</td>
               <td>{{perk.summary}}</td>
             </tr>
