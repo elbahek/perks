@@ -6,5 +6,25 @@
         font-weight: bold;
       }
     }
+    .th-summary {
+      position: relative;
+      height: 3.5em;
+      .search-form {
+        position: absolute;
+        bottom: @table-condensed-cell-padding;
+        right: @table-condensed-cell-padding;
+        margin-bottom: 0;
+        font-weight: normal;
+        .search-input-icon {
+          .custom-input-icon;
+        }
+      }
+    }
+    .td-stat {
+      white-space: nowrap;
+    }
+    .td-name {
+      .td-name-with-original-icon;
+    }
   }
 }

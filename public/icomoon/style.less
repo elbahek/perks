@@ -1,3 +1,5 @@
+@import "variables"
+
 @font-face {
     font-family: 'icomoon';
     src:    url('fonts/icomoon.eot?ihlcxm');
@@ -24,19 +26,29 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-search:before {
-    content: "\f002";
+.icon-search {
+    &:before {
+        content: @icon-search;
+    }
 }
-.icon-exclamation-circle:before {
-    content: "\f06a";
+.icon-exclamation-circle {
+    &:before {
+        content: @icon-exclamation-circle;
+    }
 }
-.icon-bars:before {
-    content: "\f0c9";
+.icon-bars {
+    &:before {
+        content: @icon-bars;
+    }
 }
-.icon-navicon:before {
-    content: "\f0c9";
+.icon-navicon {
+    &:before {
+        content: @icon-navicon;
+    }
 }
-.icon-reorder:before {
-    content: "\f0c9";
+.icon-reorder {
+    &:before {
+        content: @icon-reorder;
+    }
 }
 

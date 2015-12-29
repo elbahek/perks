@@ -1,8 +1,21 @@
 #page-traits {
-  h4 {
-    text-align: center;
-  }
-  .not-ready-img {
-    margin-bottom: 3em;
+  #traits-table {
+    .th-description {
+      position: relative;
+      height: 3.5em;
+      .search-form {
+        position: absolute;
+        bottom: @table-condensed-cell-padding;
+        right: @table-condensed-cell-padding;
+        margin-bottom: 0;
+        font-weight: normal;
+        .search-input-icon {
+          .custom-input-icon;
+        }
+      }
+    }
+    .td-name {
+      .td-name-with-original-icon;
+    }
   }
 }

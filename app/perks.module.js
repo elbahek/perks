@@ -2,7 +2,8 @@
 
 var PerksModule = angular.module('PerksModule', [
   'ngRoute',
-  'angular.filter'
+  'angular.filter',
+  'fsm'
 ]);
 
 /**

@@ -1,8 +1,33 @@
 <div id="page-traits" class="page">
   <div class="container-fluid">
     <div class="col-lg-22 col-lg-offset-1 col-md-24 col-sm-24 col-xs-24">
-      <h4>Not ready yet</h4>
-      <img src="images/not-ready.jpg" alt="Not ready yet!" class="img-responsive center-block not-ready-img">
+      <div class="table-responsive">
+        <table id="traits-table" class="table table-bordered table-condensed">
+          <thead fsm-sticky-header scroll-body="'#traits-table'" scroll-stop="0">
+            <tr class="success">
+              <th>Name</th>
+              <th class="th-description">
+                Description
+                <div class="form-group has-feedback search-form">
+                  <input type="text" class="form-control" placeholder="Search" ng-model="search.name">
+                  <i class="form-control-feedback icon-search search-input-icon"></i>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="trait in data.traits | filter:search | orderBy:'name'">
+              <td class="td-name">
+                {{trait.name}}
+                <i class="icon-exclamation-circle new-icon"
+                   ng-if="!trait.isOriginal"
+                   title="New or modified perk"></i>
+              </td>
+              <td>{{trait.description}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
