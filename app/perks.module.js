@@ -21,5 +21,5 @@ PerksModule.config([
       templateUrl: 'views/pages/traits.html'
     });
 
-  $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(false);
 }]);
