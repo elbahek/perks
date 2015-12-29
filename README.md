@@ -1,11 +1,11 @@
 # Perks
 
-A simple list of Perks (based on Fallout 2) with filter. [App here](https://elbahek.github.io/perks).
+A simple list of Perks (based on Fallout 2) with filter. [App here](https://elbahek.github.io/perks/).
 
 
 #### TODO:
 - [ ] Perk add/edit/delete form (should this trigger pull-request?)
-- [ ] Traits page
+- [x] Traits page
 - [x] I need to somehow distinguish between old original perks and newly added
 
 
