@@ -593,8 +593,8 @@
         },
         "other":"(No Mutants)"
       },
-      "summary":"+5% Critical Chance per level",
-      "isOriginal":true
+      "summary":"+5% Critical Chance per level for one of your tag skills",
+      "isOriginal":false
     },
     {
       "name":"Negotiator",
@@ -1479,6 +1479,278 @@
       },
       "summary":"Critical Hit with Ranged against LK",
       "isOriginal":true
+    },
+    {
+      "name": "Savage Grin of Capitalism",
+      "level": 3,
+      "ranks": 1,
+      "requirements": {
+        "other": "Barter 50%"
+      },
+      "summary": "Any income you earn from your own original ideas will have a 25% bonus (125% income)",
+      "isOriginal": false
+    },
+    {
+      "name": "Psi Null",
+      "level": 6,
+      "ranks": 1,
+      "requirements": {
+        "stats": {
+          "in": "< 6"
+        },
+        "other": "(No psionics)"
+      },
+      "summary": "You are undetectable by psionic measures",
+      "isOriginal": false
+    },
+    {
+      "name": "Psionic Body Control",
+      "level": 3,
+      "ranks": 3,
+      "requirements": {
+        "stats": {
+          "in": "6"
+        },
+        "other": "Psi Defense: 20%, (Only psionics)"
+      },
+      "summary": "Lvl 1: remove radiation, hormones boost, limited body control; Lvl 2: enhanced regeneration; Lvl 3: locally boost your body parts for strength/DR/regeneration/etc, full body control",
+      "isOriginal": false
+    },
+    {
+      "name": "Psi Scrambling",
+      "level": 3,
+      "ranks": 2,
+      "requirements": {
+        "stats": {
+          "in": 6
+        },
+        "other": "Psi Defense: 15%, Psi Perception: 10%, (Only psionics)"
+      },
+      "summary": "It is harder to detect you with psionic measures. Lvl 1: user only; Lvl 2: up to 2 + IN/2 targets (including user)",
+      "isOriginal": false
+    },
+    {
+      "name": "Psionietzsche",
+      "level": 6,
+      "ranks": 1,
+      "requirements": {
+        "other": "(Only psionics)"
+      },
+      "summary": "On successful psi defense you get a 10% boost to your next psi roll (only applies to your \"psi specialization\" rolls) for next round",
+      "isOriginal": false
+    },
+    {
+      "name": "Brainie Sync",
+      "level": 6,
+      "ranks": 2,
+      "requirements": {
+        "stats": {
+          "in": 7
+        },
+        "other": "Psi Defense: 30%, Psi Perception: 15%, (Only psionics)"
+      },
+      "summary": "You have additional bonuses if you host Psi Conference. Level 1 grants you: realtime psi conversation in any fast-paced situation like battle, chase or any situation where sequence comes into use (Prostitute uses Jet). You have +20% to psi defense against anybody eavesdropping/compromising/attacking your conference. Any conference member get +10% to psionic defense against psi attacks. All psis share their energypool. If one of the conference psis wants to use shared energypool - conference should roll against psi defense to provide this energy. All psis participating in conference act with host Sequence (or they won't get bonuses). On a cooperative psi action, everybody get -5% except for host which act at no penalty. Level 2 grants: +30% to psi againts eavesdropping/compromising. No roll required to use energypool. No additional penalties for cooperative actions.",
+      "isOriginal": false
+    },
+    {
+      "name": "Macedonian Style Shooting",
+      "level": 6,
+      "ranks": 3,
+      "requirements": {
+        "stats": {
+          "ag": 8
+        },
+        "other": "Small Guns: 100%"
+      },
+      "summary": "Use two one-handed guns simultaneously. Level 1: single shot -20%, burst -30%; level 2: single shot -10%, burst -20%, +3% Critical Chance; level 3: single shot - no penalty, burst -15%, +5% Critical Chance",
+      "isOriginal": false
+    },
+    {
+      "name": "Rioto Djukai",
+      "level": 6,
+      "ranks": 3,
+      "requirements": {
+        "stats": {
+          "ag": 8
+        },
+        "other": "Melee: 100%"
+      },
+      "summary": "Use two one-handed melee weapons simultaneously. Level 1: against single target -10%, two targets: -25%; level 2: single target no penalty, two targets -15%, +3 AC (when wielding both weapons), +1 movement AP; level 3: single target no penalty, two targets -10%, +5 AC, +2 movement AP.",
+      "isOriginal": false
+    },
+    {
+      "name": "City Hunter",
+      "level": 18,
+      "ranks": 1,
+      "summary": "You are hunter. The city is your stone jungle. When wandering cities you get +1 to Perception, +15% to your chance to hit, +20% to Sneak, +20% to Traps, +30% to pilot and +50% to Outdoorsman, your enemy will suffer –30% to his CtH when you are covered behind something and your move will be first always (despite of sequence).",
+      "isOriginal": false
+    },
+    {
+      "name": "Wilderness Hunter",
+      "level": 18,
+      "ranks": 1,
+      "summary": "Opposite of City Hunter. Outside in the wild (city ruins also count) you get +1 to PE, +15% to chance to hit, +20% to Sneak, +20% to Traps, , +30% to Pilot (discuss Pilot bonus with your GM) and +50% to Outdoorsman, , your enemy will suffer –30% to his CtH when you are covered behind something and your move will be first always (despite of sequence).",
+      "isOriginal": false
+    },
+    {
+      "name": "Second Chance",
+      "level": 15,
+      "ranks": 1,
+      "requirements": {
+        "stats": {
+          "in": 8
+        },
+        "other": "Psi Attack: 75%, (Only psionics)"
+      },
+      "summary": "You can transfer your mind (and psi abilities) to another body, which will kill original personality, making you the \"body owner\". The action itself is extremely difficult and can be attempted once for a while (up to GM). If you cannot return your wandering consciousness to your body - you die. If you fail, but have your original body functioning at hand - you will return to your body, but you drain your energypool fully and cannot execute psionic actions. Also you are very tired. On success - u have transfered your mind to another body. Your physical stats belong to your new body. Your intelligence remain the same (from your previous body). All stats, skills increases (for example CH is a measure of your general influence on people, not only physical attractiveness) are up to GM. You have to adapt to new body, the severeness of penalties is up to GM.",
+      "isOriginal": false
+    }
+  ],
+  "traits": [
+    {
+      "name": "Fast Metabolism",
+      "description": "Your metabolic rate is twice normal. This means that you are much less resistant to radiation and poison, but your body heals faster. You get a 2 point bonus to Healing Rate, but your Radiation and Poison Resistance start at 0% (racial modifiers are added later). Robots cannot choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Bruiser",
+      "description": "A little slower, but a little bigger. You may not hit as often, but they will feel it when you do! Your total action points are lowered, but your Strength is increased. You get a 2 point bonus to Strength, but loose 2 Action Points.",
+      "isOriginal": true
+    },
+    {
+      "name": "Small Frame",
+      "description": "You are not quite as big as everyone else, but that never slowed you down. You can't carry as much, but you are more agile. You get a 1 point bonus to Agility, but your Carry Weight is only 15 lbs X Strength.",
+      "isOriginal": true
+    },
+    {
+      "name": "One Hander",
+      "description": "One of your hands is very dominant. You excel with single-handed weapons, but two-handed weapons cause a problem. You have a 40% penalty to hit with twohanded weapons, but get a 20% bonus to hit with weapons that only require one hand. Animals cannot choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Finesse",
+      "description": "Your attacks show a lot of finesse. You don't do as much damage, but you cause more critical hits. All of your attacks lose 30% of their damage (after reductions are made for Damage Resistance, etc.) but you gain a 10% bonus to Critical Chance.",
+      "isOriginal": true
+    },
+    {
+      "name": "Kamikaze",
+      "description": "By not paying attention to any threats, you can act a lot faster in a turn. This lowers your Armor Class to just what you are wearing, but you sequence much faster in a combat turn. You have no natural Armor Class (Armor Class is therefore 0 regardless of Agility). You must wear armor to get an Armor Class. Your sequence gets a 5 point bonus.",
+      "isOriginal": true
+    },
+    {
+      "name": "Heavy Handed",
+      "description": "You swing harder, not better. Your attacks are very brutal, but lack finesse. You rarely cause a good critical hit, but you always do more melee damage. You get a 4 point bonus to Melee Damage, but your critical hits do 30% less damage, and are 30% less likely to cripple a limb or cause unconsciousness.",
+      "isOriginal": true
+    },
+    {
+      "name": "Fast Shot",
+      "description": "You don't have time for a targeted attack, because you attack faster than normal people. It costs you one less action point to use a weapon. You cannot perform targeted shots, but all weapons take one less action point to use. Note that the Fast Shot trait has no effect on HtH or Melee attacks. Animals cannot choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Bloody Mess",
+      "description": "By some strange twist of fate, people around you die violently. You always see the worst way a person can die. This does not mean you kill them any faster or slower, but when they do die, it will be dramatic. Just how dramatic is up to the Gamemaster.",
+      "isOriginal": true
+    },
+    {
+      "name": "Jinxed",
+      "description": "The good thing is that everyone around you has more critical failures in combat. The bad thing is: so do you! If you, a member of your party, or a non-player character have a failure in combat, there is a greater likelihood the failure will be upgraded (downgraded?) to a critical failure. Critical failures are bad: weapons explode, you may hit the wrong target, you could lose part of your turn, or any number of bad things. Failures are 50% more likely to become critical failures around the character or anyone else in combat.",
+      "isOriginal": true
+    },
+    {
+      "name": "Good Natured",
+      "description": "You studied less-combative skills as you were growing up. Your combat skills start at a lower level, but First Aid, Doctor, Speech, and Barter are substantially improved. Those skills get a 20% bonus. You get a 10% penalty to starting combat skills (Small Guns, Big Guns, Energy Weapons, Unarmed, and Melee Weapons). This is a one-time bonus. Animals and robots cannot choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Chem Reliant",
+      "description": "You are more easily addicted to chems. Your chance to be addicted is twice normal, but you recover in half the time from their ill effects. Robots cannot choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Chem Resistant",
+      "description": "Chems only effect you half as long as normal, but your chance to be addicted is only 50% the normal amount. Robots cannot choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Night Person",
+      "description": "As a night-time person, you are more awake when the sun goes down. Your Intelligence and Perception are improved at night but are dulled during the day. You get a 1 point penalty to these Statistics from 0601 to 1800, and a 1 point bonus to these Stats from 1801 to 0600. Robots cannot choose this trait. Note that the bonus cannot take IN and PE above the character’s racial maximum or below the character’s racial minimum.",
+      "isOriginal": true
+    },
+    {
+      "name": "Skilled",
+      "description": "Since you spend more time improving your skills than a normal person, you gain more skill points. The tradeoff is that you do not gain as many extra abilities. You will gain a perk at one level higher than normal. For example, if you normally gained a perk every 4 levels, you would now gain a perk every 5 levels. You will get an additional 5 skill points per new experience level, and a one-time bonus of +10% to your skills when you begin the game. Animals and robots cannot choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Gifted",
+      "description": "You have more innate abilities than most, so you have not spent as much time honing your skills. Your statistics are better than the average person, but your skills are lacking. All Stats get a 1-point bonus, but all skills get a 10% penalty and you receive 5 less Skill Points per level. Robots cannot choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Sex Appeal",
+      "description": "This trait increases your chances of having a good reaction with members of the opposite sex. Unfortunately, this trait tends to annoy members of your sex. Jealous twits. When interacting with members of the opposite sex, you gain a 1 point bonus to Charisma for reactions only. When making Speech and Barter rolls, you gain a 40% bonus for each. When interacting with members of the same sex, you have a 1 point penalty to Charisma for reactions only and have a 40% penalty to both Speech and Barter rolls. Only humans can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Glowing One",
+      "description": "Extreme radiation exposure has left you glowing in the dark. Your glow eliminates modifiers from light in combat for both you and your enemies. In addition, you gain a +50% bonus to Radiation Resistance, but everyone around you takes 10 rads per hour (see Radiation under Damage and Death, below). Only Ghouls can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Tech Wizard",
+      "description": "You spent your formative years hunched over a bench learning all about the way things work. The trouble is that you’ve ruined your eyes! You get a +15% bonus to Science, Repair, and Lockpick skills, but you lose 1 Perception. Deathclaws and Dogs cannot choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Fear the Reaper",
+      "description": "You have cheated death! You gain perksas if you were a human, but you are now on death’s short list. This means that once a month, you must roll against Luck or else drop dead. Only Ghouls can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Vat Skin",
+      "description": "Other people find you hideous to behold and disgusting to smell after your “dip” in the FEV vats. The good news is that you gain a +10 bonus to your Armor Class thanks to your extra-tough skin. The bad news is that everyone within ten hexes of your location, friend and foe, suffers a 1-point penalty to Perception (you are unaffected). Only Mutants can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Ham Fisted",
+      "description": "Genetic engineering – or dumb luck – has endowed you with huge hands. You get a “free” tag skill in Unarmed, but you suffer a -20% penalty to Small Guns, First Aid, Doctor, Repair, Science, and Lockpick Skills (these numbers cannot go below 0%). Only Mutants can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name":"Domesticated",
+      "description": "You have undergone extensive house training and have developed an aboveaverage Intelligence. Your IN is raised by 1, and can even go above your racial maximum, but you get a –2 penalty to Melee Damage. Only Deathclaws and Dogs can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Rabid",
+      "description": "You are a half-crazed, feral killing machine. You are not affected by crippled limbs (blindness still affects you normally), and every time you kill an opponent in combat, you get 5 more APs that round. Chems, including stimpaks, have no effect on you. Only Deathclaws and Dogs can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Tight Nuts",
+      "description": "This robot was built to take the knocks. You get double the base Damage Resistance to any attack, but you gain only half the Hit Points back from repairs. Only Robots can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Targeting Computer",
+      "description": "You have been programmed with an onboard targeting computer. All attacks cost 1 extra AP to perform, but you can always add +15% to your chance to-hit. Only Robots can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "EMP Shielding",
+      "description": "You have a dedicated EMP shielding system. It takes you 2 AP to move 1 hex because of your heavy equipment, but you have a 30% Resistance to all forms of EMP attack. Only Robots can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Beta Software",
+      "description": "You have been equipped with an experimental operating system and peripherals. You get 1 extra Tag Skill, but whenever using ANY tag skill, you must roll against Luck or suffer an automatic failure and, in combat, a loss of all APs for that round. Only Robots can choose this trait.",
+      "isOriginal": true
+    },
+    {
+      "name": "Wild Psi",
+      "description": "This is the default trait for Wild Psis. Air wilds generally have mild claustrophobia and some bonuses on open air. Earth wilds hates flying and feel comfortable underground. Fire ones likes to burn things, feel good near big fires and hate open sea. Water ones are like fire wilds * -1. Those bonuses/penalties can be mild or very severe, GM decision is final.",
+      "isOriginal": false
     }
   ]
 }
